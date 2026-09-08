@@ -77,38 +77,49 @@
         @media (max-width: 600px) { .container { padding: 15px 15px 30px; } h1 { font-size: 26px; } .card-back .options { grid-template-columns: 1fr; } .card-back .option-btn { padding: 12px; } .track-wrapper { padding: 14px; } .banner { font-size: 12px; padding: 4px 12px; } .runner { font-size: 30px; } .track-line { left: 40px; right: 40px; } .card-front .question-label { font-size: 26px; } .controls button { font-size: 13px; padding: 6px 14px; } .watermark { font-size: 12px; } .footer { flex-wrap: wrap; gap: 8px; justify-content: flex-start; } .card { min-height: 170px; } .card-face { min-height: 170px; padding: 18px 14px 14px; } .card-back { padding: 14px 12px 3px; } .finish-overlay .title { font-size: 32px; } .finish-overlay .icon { font-size: 56px; } .finish-overlay .sub { font-size: 18px; } .finish-overlay .btn-restart { font-size: 16px; padding: 10px 24px; } }
         @media (max-width: 400px) { .controls button { font-size: 12px; padding: 4px 10px; } .watermark { font-size: 11px; } .card { min-height: 150px; } .card-face { min-height: 150px; padding: 14px 10px 10px; } .card-back { padding: 12px 10px 2px; } .finish-overlay .title { font-size: 28px; } .finish-overlay .icon { font-size: 48px; } }
         @media (min-width: 1024px) { .wrapper { max-width: 1100px; } .container { padding: 40px 40px 50px; } .card-back .q-text { font-size: 22px; } .card-back .option-btn { font-size: 18px; padding: 14px 12px; } .card-back .options { gap: 12px; } .track-wrapper { padding: 24px 24px 20px; } .runner { font-size: 48px; } .banner { font-size: 16px; padding: 8px 20px; } .card-front .question-label { font-size: 38px; } .controls button { font-size: 17px; padding: 10px 24px; } }
-/* ===== ФИНАЛЬНЫЙ БЛОК: СВЕЖЕОСТРУГАННОЕ ДЕРЕВО ===== */
+/* ===== СВЕЖЕОСТРУГАННОЕ ДЕРЕВО (ТОЛЬКО ФОНЫ) ===== */
 .subtitle,
 .track-wrapper,
 .progress-text,
-.card-back .option-btn,
 .controls button,
 .finish-overlay .btn-restart,
 .pause-overlay .pause-text,
 .banner {
-background: #f5ebd4 !important;
+    background: #f5ebd4 !important;
 }
 
 .card-face,
 .card-back {
-background: #faf3e2 !important;
+    background: #faf3e2 !important;
 }
 
 .card-front {
-background: linear-gradient(145deg, #faf3e2, #f2e5cc) !important;
+    background: linear-gradient(145deg, #faf3e2, #f2e5cc) !important;
 }
 
 .controls button:hover,
-.finish-overlay .btn-restart:hover,
-.card-back .option-btn:hover:not(.disabled) {
-background: #e8d9b8 !important;
+.finish-overlay .btn-restart:hover {
+    background: #e8d9b8 !important;
 }
 
 .banner-start {
-background: #d4e8d4 !important;
+    background: #d4e8d4 !important;
 }
 .banner-finish {
-background: #d4e8f5 !important;
+    background: #d4e8f5 !important;
+}
+
+/* ===== ПРАВИЛЬНЫЙ / НЕПРАВИЛЬНЫЙ ОТВЕТ (ПОЛНАЯ ЗАЛИВКА) ===== */
+.card-back .option-btn.correct {
+    background: #a8d5a8 !important;
+    border-color: #4f8a4f !important;
+    color: #1a4a1a !important;
+}
+
+.card-back .option-btn.wrong {
+    background: #e8b0b0 !important;
+    border-color: #b85454 !important;
+    color: #5a1a1a !important;
 }
     </style>
 </head>
