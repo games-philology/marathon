@@ -16,12 +16,12 @@
         .track-line { position: absolute; top: 50%; left: 60px; right: 60px; height: 4px; background: #cdbca8; transform: translateY(-50%); border-radius: 2px; }
         .banner { position: absolute; top: 50%; transform: translateY(-50%); background: #f5efe8; padding: 6px 16px; border-radius: 30px; border: 2px solid #cdbca8; font-weight: 700; font-size: 14px; color: #3d2b1a; letter-spacing: 0.5px; white-space: nowrap; box-shadow: 0 2px 6px rgba(0,0,0,0.06); z-index: 2; }
         .banner-start { left: 0; background: #d4e8d4; border-color: #6f9e6f; }
-        .banner-finish { right: 0; background: #d4e8f5; border-color: #6f9ec9; } /* голубой финиш */
+        .banner-finish { right: 0; background: #d4e8f5; border-color: #6f9ec9; }
         .runner { position: absolute; top: 50%; left: 0; transform: translate(-50%, -50%) scaleX(-1); font-size: 38px; line-height: 1; z-index: 10; transition: left 0.6s cubic-bezier(0.34, 1.1, 0.55, 1); filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)); pointer-events: none; will-change: left; }
         .progress-text { text-align: center; font-size: 15px; color: #5a4a3a; font-weight: 500; background: #f5efe8; padding: 6px 14px; border-radius: 30px; display: inline-block; border: 1px solid #ded3c4; margin-top: 6px; }
         .progress-wrap { text-align: center; }
         .card-area { perspective: 1200px; margin: 6px 0 0; position: relative; }
-        .card { position: relative; width: 100%; min-height: 200px; cursor: pointer; transition: transform 0.6s ease, opacity 0.5s ease; transform-style: preserve-3d; border-radius: 28px; }
+        .card { position: relative; width: 100%; min-height: 200px; cursor: pointer; transition: transform 0.6s ease, opacity 0.5s ease; transform-style: preserve-3d; border-radius: 28px; -webkit-tap-highlight-color: transparent; } /* убираем синюю подсветку */
         .card.flipped { transform: rotateY(180deg); }
         .card.hidden { opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
         .card-face { position: absolute; width: 100%; min-height: 200px; backface-visibility: hidden; border-radius: 28px; padding: 24px 20px 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border: 2px solid #dfd2c0; background: #faf5ee; }
@@ -30,7 +30,7 @@
         .card-back { transform: rotateY(180deg); background: #faf5ee; border-color: #d4c4b0; justify-content: flex-start; align-items: stretch; padding: 18px 16px 4px; }
         .card-back .q-text { font-size: 18px; font-weight: 600; color: #2d1f0e; margin-bottom: 12px; line-height: 1.5; text-align: center; word-break: keep-all; overflow-wrap: break-word; white-space: normal; }
         .card-back .options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-        .card-back .option-btn { background: #f5efe8; border: 2px solid #ddd0be; border-radius: 16px; padding: 10px 8px; font-size: 15px; font-weight: 500; color: #2d1f0e; cursor: pointer; transition: all 0.15s ease; text-align: center; line-height: 1.3; box-shadow: 0 2px 0 rgba(0,0,0,0.04); user-select: none; word-break: keep-all; overflow-wrap: break-word; white-space: normal; }
+        .card-back .option-btn { background: #f5efe8; border: 2px solid #ddd0be; border-radius: 16px; padding: 10px 8px; font-size: 15px; font-weight: 500; color: #2d1f0e; cursor: pointer; transition: all 0.15s ease; text-align: center; line-height: 1.3; box-shadow: 0 2px 0 rgba(0,0,0,0.04); user-select: none; word-break: keep-all; overflow-wrap: break-word; white-space: normal; -webkit-tap-highlight-color: transparent; } /* убираем синюю подсветку */
         .card-back .option-btn:hover:not(.disabled) { background: #ece1d2; transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,0.06); }
         .card-back .option-btn:active:not(.disabled) { transform: translateY(0); }
         .card-back .option-btn.correct { background: #a8d5a8; border-color: #4f8a4f; color: #1a4a1a; pointer-events: none; }
@@ -39,11 +39,9 @@
         .card-back .feedback-row { margin-top: 10px; text-align: center; font-weight: 600; font-size: 16px; min-height: 24px; color: #3d2b1a; }
         .card:not(.flipped) .card-back { pointer-events: none; }
         .card.flipped .card-front { pointer-events: none; }
-        /* Компактные вопросы — уменьшенный шрифт */
         .card.compact .card-back { padding: 18px 16px 4px; }
         .card.compact .q-text { font-size: 16px; margin-bottom: 10px; }
         .card.compact .option-btn { font-size: 14px; padding: 8px 6px; }
-        /* Спецстили для 14-го и 42-го, если нужно */
         .card.q14 .q-text { font-size: 15px; }
         .card.q14 .card-back { padding: 16px 14px 2px; }
         .card.q14 .option-btn.small { font-size: 12px; padding: 4px 3px; }
@@ -53,7 +51,7 @@
 
         .footer { display: flex; justify-content: space-between; align-items: center; padding: 10px 5px 0; background: transparent; }
         .controls { display: flex; flex-wrap: wrap; gap: 10px; }
-        .controls button { background: #f5efe8; border: 3px solid #2e5a2e; border-radius: 30px; padding: 8px 18px; font-size: 15px; font-weight: 700; color: #2d1f0e; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.08); display: inline-flex; align-items: center; gap: 6px; font-family: inherit; letter-spacing: 0.3px; }
+        .controls button { background: #f5efe8; border: 3px solid #2e5a2e; border-radius: 30px; padding: 8px 18px; font-size: 15px; font-weight: 700; color: #2d1f0e; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.08); display: inline-flex; align-items: center; gap: 6px; font-family: inherit; letter-spacing: 0.3px; -webkit-tap-highlight-color: transparent; } /* и для кнопок тоже */
         .controls button:hover { background: #ece1d2; border-color: #1f4a1f; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
         .controls button:active { transform: scale(0.96); }
         .controls button .emoji { font-size: 18px; }
@@ -65,7 +63,7 @@
         .finish-overlay .icon { font-size: 80px; margin-bottom: 20px; }
         .finish-overlay .title { font-size: 48px; font-weight: 800; color: #2e5a2e; text-align: center; line-height: 1.2; }
         .finish-overlay .sub { font-size: 22px; color: #3d2b1a; margin-top: 10px; text-align: center; }
-        .finish-overlay .btn-restart { margin-top: 30px; background: #f5efe8; border: 3px solid #2e5a2e; border-radius: 40px; padding: 14px 40px; font-size: 20px; font-weight: 700; color: #2d1f0e; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+        .finish-overlay .btn-restart { margin-top: 30px; background: #f5efe8; border: 3px solid #2e5a2e; border-radius: 40px; padding: 14px 40px; font-size: 20px; font-weight: 700; color: #2d1f0e; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; -webkit-tap-highlight-color: transparent; }
         .finish-overlay .btn-restart:hover { background: #ece1d2; border-color: #1f4a1f; transform: translateY(-2px); }
         .finish-overlay .btn-restart:active { transform: scale(0.96); }
         .finish-overlay .confetti-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; border-radius: 40px; }
@@ -141,7 +139,7 @@
             { question: "«У наших ушки на макушке!&nbsp;/&nbsp;Чуть утро осветило пушки&nbsp;/<br>И леса синие верхушки&nbsp;—&nbsp;/&nbsp;Французы тут как тут».<br>Какой приём использовал Михаил Лермонтов?", options: ["парцелляция", "ассонанс", "аллитерация", "анафора"], correct: 1 },
             { question: "«Морозом выпитые лужи / Хрустят и хрупки, как хрусталь».<br>Какой приём использовал Игорь Северянин?", options: ["ассонанс", "аллитерация", "парцелляция", "анафора"], correct: 1 },
             { question: "Для классицизма характерно следующее:", options: [ "искусство должно приносить пользу", "единство места, времени<br>и действия", "чёткое деление персонажей<br>на положительных и отрицательных", "всё перечисленное" ], correct: 3, compactOption: 2 },
-            { question: "Какой приём использует Д.&nbsp;И.&nbsp;Фонвизин для характеристики персонажей в комедии «Недоросль»?", options: ["авторская оценка", "говорящие фамилии", "внутренний монолог", "портретное описание"], correct: 1 },
+            { question: "Какой приём использует Д.&nbsp;И.&nbsp;Фонвизин для характеристики персонажей в&nbsp;комедии «Недоросль»?", options: ["авторская оценка", "говорящие фамилии", "внутренний монолог", "портретное описание"], correct: 1 },
             { question: "Кто описал своё путешествие из Петербурга в Москву?", options: ["Н.&nbsp;М.&nbsp;Карамзин", "А.&nbsp;Н.&nbsp;Радищев", "Д.&nbsp;И.&nbsp;Фонвизин", "А.&nbsp;С.&nbsp;Пушкин"], correct: 1 },
             { question: "«Здесь Лиза бедная свои скончала дни. Коль ты чувствителен, читатель, воздохни». К какому направлению относится повесть Н.&nbsp;М.&nbsp;Карамзина «Бедная Лиза»?", options: ["классицизм", "сентиментализм", "романтизм", "реализм"], correct: 1 },
             { question: "«Не человек, змея!» Кто в комедии<br>А.&nbsp;С.&nbsp;Грибоедова «Горе от ума» так говорит о Чацком?", options: ["Фамусов", "Скалозуб", "Софья", "Хлёстова"], correct: 2 },
@@ -149,23 +147,23 @@
             { question: "Какая цитата характеризует Павла Афанасьевича Фамусова?", options: ["«Служить бы рад, прислуживаться тошно»", "«Обычай мой такой:<br>Подписано, так с плеч долой»", "«Он слова умного не выговорил сроду»", "«Мне только бы досталось<br>в генералы»"], correct: 1 },
             { question: "О&nbsp;ком А.&nbsp;С.&nbsp;Пушкин в своём знаменитом романе в стихах пишет так:<br>«Кругла, красна лицом она,&nbsp;/&nbsp;Как эта глупая луна&nbsp;/<br>На этом глупом небосклоне»?", options: ["Татьяна&nbsp;Ларина", "Ольга&nbsp;Ларина", "няня&nbsp;Филипьевна", "балерина&nbsp;Авдотья&nbsp;Истомина"], correct: 1 },
             { question: "С каким животным А.&nbsp;С.&nbsp;Пушкин сравнивает Татьяну Ларину?", options: ["грациозная кошка", "ранняя птичка", "лесная лань", "стройная газель"], correct: 2 },
-            { question: "«Началось с неуменья надевать чулки и кончилось неуменьем жить». Кто так говорит об Обломове?", options: ["сам Гончаров", "Андрей&nbsp;Штольц", "Ольга&nbsp;Ильинская", "Захар"], correct: 1 },
-            { question: "«...тип почти комический, если бы не пришлось ему на наших глазах с честью умереть». О&nbsp;ком из персонажей романа А.&nbsp;С.&nbsp;Пушкина «Капитанская дочка» так пишет Марина Цветаева?", options: ["капитан&nbsp;Миронов", "Емельян&nbsp;Пугачёв", "Савельич", "Пётр&nbsp;Гринёв"], correct: 0 },
-            { question: "Николай&nbsp;I считал, что главным героем романа М.&nbsp;Ю.&nbsp;Лермонтова «Герой нашего времени» должен быть...", options: ["Печорин", "Максим&nbsp;Максимыч", "Грушницкий", "доктор&nbsp;Вернер"], correct: 1 },
+            { question: "«Началось с неуменья надевать чулки и кончилось неуменьем жить».<br>Кто так говорит об Обломове?", options: ["сам Гончаров", "Андрей&nbsp;Штольц", "Ольга&nbsp;Ильинская", "Захар"], correct: 1 },
+            { question: "«...тип почти комический, если бы не пришлось ему на наших глазах <br>с честью умереть». О ком из персонажей романа А.&nbsp;С.&nbsp;Пушкина «Капитанская дочка» так пишет Марина Цветаева?", options: ["капитан&nbsp;Миронов", "Емельян&nbsp;Пугачёв", "Савельич", "Пётр&nbsp;Гринёв"], correct: 0 },
+            { question: "Николай&nbsp;I считал, что главным <br>героем романа М.&nbsp;Ю.&nbsp;Лермонтова «Герой нашего времени» должен быть...", options: ["Печорин", "Максим&nbsp;Максимыч", "Грушницкий", "доктор&nbsp;Вернер"], correct: 1 },
             { question: "Откуда мы больше всего узнаём о&nbsp;Печорине?", options: ["из&nbsp;рассказов&nbsp;Максима&nbsp;Максимыча", "от&nbsp;Грушницкого", "из&nbsp;дневника&nbsp;Печорина", "из&nbsp;разговоров&nbsp;других&nbsp;персонажей"], correct: 2 },
             { question: "Чем брал взятки Аммос Фёдорович Ляпкин-Тяпкин,<br>персонаж комедии Н.&nbsp;В.&nbsp;Гоголя «Ревизор»?", options: ["деньгами", "борзыми щенками", "услугами", "что принесут, тем и брал"], correct: 1 },
             { question: "Как Н.&nbsp;В.&nbsp;Гоголь определил жанр «Мёртвых душ»?", options: ["роман", "роман-эпопея", "поэма", "повесть"], correct: 2 },
             { question: "Как звали сыновей Манилова?", options: ["Аякс и Гектор", "Кастор и Поллукс", "Пётр и Павел", "Фемистоклюс и Алкид"], correct: 3 },
-            { question: "Кто назвал Катерину из пьесы А.&nbsp;Н.&nbsp;Островского «Гроза» «лучом света в тёмном царстве»?", options: ["Н.&nbsp;А.&nbsp;Добролюбов", "В.&nbsp;Г.&nbsp;Белинский", "Д.&nbsp;И.&nbsp;Писарев", "сам Островский и назвал"], correct: 0 },
+            { question: "Кто назвал Катерину из пьесы А.&nbsp;Н.&nbsp;Островского «Гроза»<br>«лучом света в тёмном царстве»?", options: ["Н.&nbsp;А.&nbsp;Добролюбов", "В.&nbsp;Г.&nbsp;Белинский", "Д.&nbsp;И.&nbsp;Писарев", "сам Островский и назвал"], correct: 0 },
             { question: "Кому И.&nbsp;С.&nbsp;Тургенев посвятил роман «Отцы и дети»?", options: ["Н.&nbsp;А.&nbsp;Добролюбову", "Александру&nbsp;II", "В.&nbsp;Г.&nbsp;Белинскому", "своим родителям"], correct: 2 },
             { question: "В каком немецком городе учился Владимир Ленский?", options: ["Берлин", "Дрезден", "Гамбург", "Геттинген"], correct: 3 },
-            { question: "Какой город можно считать полноправным персонажем многих произведений Ф.&nbsp;М.&nbsp;Достоевского, в том числе романа «Преступление и наказание»?", options: ["Москва", "Омск", "Санкт-Петербург", "Баден-Баден"], correct: 2 },
-            { question: "Роман-эпопею «Война и мир» Л. Н. Толстой изначально задумал как роман...", options: ["о&nbsp;Кутузове&nbsp;и&nbsp;Наполеоне", "о&nbsp;декабристах", "о&nbsp;героях&nbsp;войны&nbsp;1812&nbsp;года", "об&nbsp;Александре&nbsp;I"], correct: 1 },
+            { question: "Какой город можно считать полноправным персонажем многих произведений Ф.&nbsp;М.&nbsp;Достоевского, в том числе романа «Преступление <br>и наказание»?", options: ["Москва", "Омск", "Санкт-Петербург", "Баден-Баден"], correct: 2 },
+            { question: "Роман-эпопею «Война и мир» Л. Н. Толстой изначально задумал <br>как роман...", options: ["о&nbsp;Кутузове&nbsp;и&nbsp;Наполеоне", "о&nbsp;декабристах", "о&nbsp;героях&nbsp;войны&nbsp;1812&nbsp;года", "об&nbsp;Александре&nbsp;I"], correct: 1 },
             { question: "Что, согласно авторской ремарке, слышат зрители в финале пьесы А.&nbsp;П.&nbsp;Чехова «Вишнёвый сад»?", options: ["стук топора", "гудок паровоза", "звон разбитого стекла", "выстрел"], correct: 0 },
             { question: "Сатин, герой пьесы Максима Горького «На дне», говорит: «Человек! Это — великолепно! Это звучит...» Как?", options: ["горько", "гордо", "громко", "грозно"], correct: 1 },
             { question: "Как назывался знаменитый манифест футуристов?", options: ["«Призрак бродит по Европе»", "«Мы наш, мы новый мир построим»", "«Пощёчина общественному вкусу»", "«Долой!»"], correct: 2 },
             { question: "Какой поэт Серебряного века был представителем акмеизма?", options: ["Владимир&nbsp;Маяковский", "Александр&nbsp;Блок", "Сергей&nbsp;Есенин", "Осип&nbsp;Мандельштам"], correct: 3 },
-            { question: "«Рукописи не горят». Кто из героев романа М.&nbsp;А.&nbsp;Булгакова «Мастер и Маргарита» произносит эти слова?", options: ["Маргарита", "Воланд", "Мастер", "кот Бегемот"], correct: 1 },
+            { question: "«Рукописи не горят». Кто из героев романа М.&nbsp;А.&nbsp;Булгакова <br>«Мастер и Маргарита» произносит эти слова?", options: ["Маргарита", "Воланд", "Мастер", "кот Бегемот"], correct: 1 },
             { question: "«Я была тогда с моим народом / Там, где мой народ, к&nbsp;несчастью, был». О&nbsp;чём пишет Анна&nbsp;Ахматова в поэме «Реквием»?", options: ["о&nbsp;Гражданской&nbsp;войне", "о&nbsp;политических&nbsp;репрессиях", "о&nbsp;Великой&nbsp;Отечественной&nbsp;войне", "об&nbsp;эмиграции"], correct: 1 },
             { question: "«Не стоит село без праведника». Какому из своих произведений А.&nbsp;И.&nbsp;Солженицын хотел дать такое название?", options: ["«Матрёнин двор»", "«Архипелаг ГУЛАГ»", "«Один день Ивана Денисовича»", "«В круге первом»"], correct: 0 },
             { question: "Какими словами заканчивается<br>«Баллада о&nbsp;борьбе» Владимира&nbsp;Высоцкого?", options: [ "«Я люблю — и значит, я живу»", "«Спасибо, что живой»", "«Мир вашему дому!»", "«Значит, нужные книги ты в&nbsp;детстве читал»" ], correct: 3 }
@@ -197,7 +195,6 @@
             QUESTIONS = BASE_QUESTIONS.map(q => shuffleOptions(q));
         }
 
-        // Добавлены все проблемные номера для компактного отображения
         const COMPACT_QUESTIONS = [11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 27, 33, 35, 36, 37, 39, 40, 41, 42];
 
         const state = {
@@ -478,4 +475,4 @@
         init();
     </script>
 </body>
-</html> 
+</html>
