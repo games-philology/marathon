@@ -515,15 +515,23 @@
             reshuffleQuestions();
             updateProgress();
             renderCard();
-       // Принудительная альбомная ориентация на смартфонах
-if (window.innerWidth < 768) {
-lockLandscape();
-// Повторная блокировка при попытке повернуть
+        }
+            </script>
+    <script>
+// Принудительная альбомная ориентация для смартфонов
+function forceLandscape() {
+if (window.innerWidth < 768 && window.screen && window.screen.orientation) {
+window.screen.orientation.lock('landscape').catch(() => {});
+}
+}
+
+// Запускаем при полной загрузке страницы
+window.addEventListener('load', forceLandscape);
+
+// И при попытке повернуть экран
 if (window.screen && window.screen.orientation) {
-window.screen.orientation.addEventListener('change', lockLandscape);
+window.screen.orientation.addEventListener('change', forceLandscape);
 }
-}
-}
-    </script>
+</script>
 </body>
 </html>
